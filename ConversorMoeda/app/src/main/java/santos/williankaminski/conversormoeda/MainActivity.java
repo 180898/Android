@@ -41,7 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(), "Digite um atributo válido", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Digite um atributo válido",
+                    Toast.LENGTH_SHORT
+            ).show();
+
         }
     }
 
