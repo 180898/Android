@@ -3,10 +3,12 @@ package santos.williankaminski.conversormoeda;
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,11 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        if(id == R.id.button_calculate){
-            Double value = Double.valueOf(this.mViewHolder.editValue.getText().toString());
-            this.mViewHolder.textDollar.setText(String.format("%.2f", value * 3));
-            this.mViewHolder.textEuro.setText(String.format("%.2f", value * 4));
+        try {
+
+            int id = v.getId();
+            if(id == R.id.button_calculate){
+                Double value = Double.valueOf(this.mViewHolder.editValue.getText().toString());
+                this.mViewHolder.textDollar.setText(String.format("%.2f", value * 0.27));
+                this.mViewHolder.textEuro.setText(String.format("%.2f", value * 0.24));
+            }
+
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Digite um atributo válido", Toast.LENGTH_SHORT).show();
         }
     }
 
