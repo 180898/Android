@@ -3,15 +3,15 @@ package santos.williankaminski.conversormoeda;
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ViewHolder mViewHolder = new ViewHolder();
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
         this.mViewHolder.textDollar = (TextView) findViewById(R.id.text_dollar);
         this.mViewHolder.textEuro = (TextView) findViewById(R.id.text_euro);
         this.mViewHolder.buttonCalculate = (Button) findViewById(R.id.button_calculate);
+
+        this.mViewHolder.buttonCalculate.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.button_calculate){
+            
+        }
     }
 
     private static class ViewHolder{

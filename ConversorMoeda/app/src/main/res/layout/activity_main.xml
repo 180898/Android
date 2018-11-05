@@ -8,12 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/edit_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/valor_em_real" />
 
     <EditText
+        android:id="@+id/edit_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/valor"/>
@@ -44,6 +44,6 @@
         android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calcular"/>
+        android:text="@string/calcular" />
 
 </LinearLayout>
