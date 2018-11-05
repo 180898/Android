@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/edit_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/valor_em_real" />
@@ -23,6 +24,7 @@
         android:text="@string/valor_em_dollar" />
 
     <TextView
+        android:id="@+id/text_dollar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/valor_em_dollar" />
@@ -33,13 +35,15 @@
         android:text="@string/valor_em_euro" />
 
     <TextView
+        android:id="@+id/text_euro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/valor_em_euro" />
 
     <Button
+        android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/calcular"/>
-    
+
 </LinearLayout>
