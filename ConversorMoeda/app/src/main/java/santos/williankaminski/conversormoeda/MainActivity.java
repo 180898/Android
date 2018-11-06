@@ -1,9 +1,8 @@
 package santos.williankaminski.conversormoeda;
 
-import android.annotation.SuppressLint;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.Touch;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
