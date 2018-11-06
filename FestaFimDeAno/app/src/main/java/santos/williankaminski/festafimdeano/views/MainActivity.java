@@ -28,18 +28,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.confirm.setOnClickListener(this);
 
         this.mSharedPreferences = new SecurityPreferences(this);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
         this.verifyPreferences();
     }
 
-    private void verifyPreferences() {
-        String preference = this.mSharedPreferences.getStorageString(FimDeAnoConstants.preferences);
-        if (preference.isEmpty()) {
-            this.mViewHolder.confirm.setText(R.string.nao_confirmado);
-        } else if (preference.equals(FimDeAnoConstants.CONFIRMAED_WILL_GO)) {
-            this.mViewHolder.confirm.setText(R.string.sim);
-        } else {
-            this.mViewHolder.confirm.setText(R.string.nao);
-        }
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
     }
 
     @Override
@@ -50,6 +64,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, DetailsActivity.class);
             intent.putExtra(FimDeAnoConstants.preferences, preference);
             startActivity(intent);
+        }
+    }
+
+    private void verifyPreferences() {
+        String preference = this.mSharedPreferences.getStorageString(FimDeAnoConstants.preferences);
+        if (preference.isEmpty()) {
+            this.mViewHolder.confirm.setText(R.string.nao_confirmado);
+        } else if (preference.equals(FimDeAnoConstants.CONFIRMAED_WILL_GO)) {
+            this.mViewHolder.confirm.setText(R.string.sim);
+        } else {
+            this.mViewHolder.confirm.setText(R.string.nao);
         }
     }
 
