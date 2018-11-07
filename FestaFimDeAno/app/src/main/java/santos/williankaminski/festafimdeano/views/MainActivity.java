@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         this.verifyPreferences();
     }
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private int getDaysLeftToDate(){
+    private int getDaysLeftToDate() {
         Calendar calendarToday = Calendar.getInstance();
         int today = calendarToday.get(Calendar.DAY_OF_YEAR);
 
