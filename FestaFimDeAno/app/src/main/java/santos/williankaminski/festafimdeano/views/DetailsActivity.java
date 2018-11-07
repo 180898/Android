@@ -37,9 +37,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         int id = v.getId();
         if (id == R.id.participate) {
             if (this.mViewHolder.checkParticipate.isChecked()) {
-                this.mSecurityPreferences.storageString(FimDeAnoConstants.preferences, FimDeAnoConstants.CONFIRMAED_WILL_GO);
+                this.mSecurityPreferences.storageString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WILL_GO);
             } else {
-                this.mSecurityPreferences.storageString(FimDeAnoConstants.preferences, FimDeAnoConstants.CONFIRMAED_WONT_GO);
+                this.mSecurityPreferences.storageString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WONT_GO);
             }
         }
     }
@@ -47,8 +47,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private void loadDataFromActivity() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String presence = extras.getString(FimDeAnoConstants.preferences);
-            if (presence == FimDeAnoConstants.CONFIRMAED_WILL_GO) {
+            String presence = extras.getString(FimDeAnoConstants.PRESENCE);
+            if (presence.equals(FimDeAnoConstants.CONFIRMED_WILL_GO)) {
                 this.mViewHolder.checkParticipate.setChecked(true);
             } else {
                 this.mViewHolder.checkParticipate.setChecked(false);

@@ -44,11 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-    }
-
-    @Override
     protected void onResume(){
         super.onResume();
         this.verifyPreferences();
@@ -58,9 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.button_confirm) {
-            String preference = this.mSharedPreferences.getStorageString(FimDeAnoConstants.preferences);
+            String presence = this.mSharedPreferences.getStorageString(FimDeAnoConstants.PRESENCE);
             Intent intent = new Intent(this, DetailsActivity.class);
-            intent.putExtra(FimDeAnoConstants.preferences, preference);
+            intent.putExtra(FimDeAnoConstants.PRESENCE, presence);
             startActivity(intent);
         }
     }
@@ -70,16 +65,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int today = calendarToday.get(Calendar.DAY_OF_YEAR);
 
         Calendar calendarLastDay = Calendar.getInstance();
-        int lastDay = calendarToday.getActualMaximum(Calendar.DAY_OF_YEAR);
+        int lastDay = calendarLastDay.getActualMaximum(Calendar.DAY_OF_YEAR);
 
         return lastDay - today;
     }
 
     private void verifyPreferences() {
-        String preference = this.mSharedPreferences.getStorageString(FimDeAnoConstants.preferences);
-        if (preference.isEmpty()) {
+        String presence = this.mSharedPreferences.getStorageString(FimDeAnoConstants.PRESENCE);
+        if (presence.equals("")) {
             this.mViewHolder.confirm.setText(R.string.nao_confirmado);
-        } else if (preference.equals(FimDeAnoConstants.CONFIRMAED_WILL_GO)) {
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMED_WILL_GO)) {
             this.mViewHolder.confirm.setText(R.string.sim);
         } else {
             this.mViewHolder.confirm.setText(R.string.nao);
