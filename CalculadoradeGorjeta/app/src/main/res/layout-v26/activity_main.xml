@@ -24,19 +24,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="numberDecimal"
-            android:autofillHints="" />
+            android:hint="Digite o valor"
+            android:inputType="numberDecimal" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/textViewPorcentagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="18dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/textview"
+        android:text="@string/textViewPorcentagem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
@@ -81,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="@string/textview"
+        android:text="@string/textViewValorGorjeta"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewGorjeta"
         app:layout_constraintStart_toEndOf="@+id/textViewGorjeta" />
 
@@ -91,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:text="@string/textview"
+        android:text="@string/textViewValorFinal"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewTotal"
         app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
 </android.support.constraint.ConstraintLayout>
