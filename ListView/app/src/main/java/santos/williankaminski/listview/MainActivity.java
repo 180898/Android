@@ -2,8 +2,11 @@ package santos.williankaminski.listview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,5 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
         //Adicionar adaptador para a lista
         listLocais.setAdapter(adaptador);
+
+        //Adicionar clique na lista
+        listLocais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String valorSelecionado = listLocais.getItemAtPosition(i).toString();
+                Toast.makeText(getApplicationContext(), valorSelecionado, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
