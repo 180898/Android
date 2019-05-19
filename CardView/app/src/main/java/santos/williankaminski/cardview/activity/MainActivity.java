@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Define o Layout
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        //layoutManager.setOrientation(LinearLayout.HORIZONTAL); // --> Exiir a listagem de forma horizontal.
+        //layoutManager.setOrientation(LinearLayout.HORIZONTAL); // --> Exibir a listagem de forma horizontal.
 
         //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2); // --> Exibir as postagens em modo Grid.
         recyclerPostagem.setLayoutManager(layoutManager);
