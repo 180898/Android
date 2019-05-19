@@ -2,8 +2,10 @@ package santos.williankaminski.cardview.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerPostagem = findViewById(R.id.recyclerView);
 
         //Define o Layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(LinearLayout.HORIZONTAL); // --> Exiir a listagem de forma horizontal.
+
+        //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2); // --> Exibir as postagens em modo Grid.
         recyclerPostagem.setLayoutManager(layoutManager);
 
         //Define o Adapter
