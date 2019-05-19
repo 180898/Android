@@ -23,9 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), SegundaActivity.class);
 
+                Usuario usuario = new Usuario("Willian Kaminski","email@email.com.br");
+
                 //Passando dados
-                intent.putExtra("nome", "Willian Kaminski");
+                intent.putExtra("nome", "Willian");
                 intent.putExtra("idade", 18);
+
+                //Passando o Objeto Usuário
+                intent.putExtra("objeto", usuario);
 
                 startActivity(intent);
             }

@@ -22,8 +22,11 @@ public class SegundaActivity extends AppCompatActivity {
         String nome = dados.getString("nome");
         int idade = dados.getInt("idade");
 
+        //Recuperar o objeto enviado
+        Usuario usuario = (Usuario) dados.getSerializable("objeto");
+
         //Configurar valores recuperados
-        this.nome.setText(nome);
+        this.nome.setText(usuario.getNome());
         this.idade.setText(String.valueOf(idade));
     }
 }
