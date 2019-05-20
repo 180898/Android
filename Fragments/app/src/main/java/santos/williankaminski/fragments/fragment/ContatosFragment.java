@@ -32,7 +32,7 @@ public class ContatosFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_contatos, container, false);
 
         textContato = v.findViewById(R.id.textViewContatos);
-        textContato.setText("Contatos alterado");
+        textContato.setText("Contatos");
 
         return v;
     }
