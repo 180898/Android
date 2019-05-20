@@ -18,7 +18,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonAbrir = findViewById(R.id.buttonAbrir);
-
-
     }
 }
