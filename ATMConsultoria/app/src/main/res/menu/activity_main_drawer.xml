@@ -19,7 +19,7 @@
 
     </group>
 
-    <item android:title="Comunicações">
+    <item android:title="Comunicação">
         <menu>
             <item
                 android:id="@+id/nav_contato"
