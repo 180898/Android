@@ -3,6 +3,7 @@ package santos.williankaminski.atmconsultoria.activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import santos.williankaminski.atmconsultoria.R;
+import santos.williankaminski.atmconsultoria.fragment.ClientesFragment;
+import santos.williankaminski.atmconsultoria.fragment.PrincipalFragment;
+import santos.williankaminski.atmconsultoria.fragment.ServicosFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +44,11 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        PrincipalFragment principalFragment = new PrincipalFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frameContainer, principalFragment);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -81,10 +90,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_main) {
-            // Handle the camera action
+            PrincipalFragment principalFragment = new PrincipalFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameContainer, principalFragment);
+            fragmentTransaction.commit();
+
         } else if (id == R.id.nav_servicos) {
+            ServicosFragment servicosFragment = new ServicosFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameContainer, servicosFragment);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_clientes) {
+            ClientesFragment clientesFragment = new ClientesFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameContainer, clientesFragment);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_contato) {
 
@@ -95,5 +116,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void initScreen(String teste, String teste1){
+
     }
 }
