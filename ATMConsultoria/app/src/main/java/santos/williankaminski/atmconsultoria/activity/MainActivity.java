@@ -1,5 +1,6 @@
 package santos.williankaminski.atmconsultoria.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,8 +34,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                enviarEmial();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_contato) {
+            enviarEmial();
 
         } else if (id == R.id.nav_sobre) {
 
@@ -118,7 +119,15 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void initScreen(String teste, String teste1){
+    public void enviarEmial(){
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"williankaminski.santos@gmail.com"});
+        email.putExtra(Intent.EXTRA_SUBJECT,"Contato pelo App");
+        email.putExtra(Intent.EXTRA_TEXT, "Mensagem automática");
 
+        // Configurar apps para email
+        email.setType("text/plain");
+
+        startActivity(Intent.createChooser(email, "Escolha um App de email"));
     }
 }
