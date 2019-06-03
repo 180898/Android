@@ -3,7 +3,6 @@ package santos.williankaminski.atmconsultoria.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             enviarEmial();
 
         } else if (id == R.id.nav_sobre) {
-
+            startActivity(new Intent(this, SobreActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
