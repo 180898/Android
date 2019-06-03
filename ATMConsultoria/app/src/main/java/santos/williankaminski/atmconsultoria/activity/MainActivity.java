@@ -121,9 +121,9 @@ public class MainActivity extends AppCompatActivity
 
     public void enviarEmial(){
         Intent email = new Intent(Intent.ACTION_SEND);
-        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"williankaminski.santos@gmail.com"});
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
         email.putExtra(Intent.EXTRA_SUBJECT,"Contato pelo App");
-        email.putExtra(Intent.EXTRA_TEXT, "Mensagem automática");
+        email.putExtra(Intent.EXTRA_TEXT, "Mensagem Automática");
 
         // Configurar apps para email
         email.setType("text/plain");
