@@ -25,6 +25,24 @@ public class MainActivity extends AppCompatActivity {
         inicializarSeekBar();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer != null && mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
     private void inicializarSeekBar(){
         seekVolume = findViewById(R.id.seekVolume);
 
