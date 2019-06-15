@@ -11,7 +11,7 @@
         android:id="@+id/smartTableTab"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/blue400"
+        android:background="@color/yellow800"
         app:stl_indicatorAlwaysInCenter="false"
         app:stl_indicatorWithoutPadding="false"
         app:stl_indicatorInFront="false"
