@@ -8,6 +8,7 @@
     <color name="black">#000000</color>
 
     <color name="backgorund_app">#f5e9b9</color>
+    <color name="backgorund_app_numeros">#E2D2A7</color>
     <!-- RED PALETTE -->
     <color name="red50">#FFEBEE</color>
     <color name="red100">#FFCDD2</color>
