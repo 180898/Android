@@ -1,4 +1,4 @@
-package santos.williankaminski.abas;
+package santos.williankaminski.abas.Activity;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -10,6 +10,11 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
+import santos.williankaminski.abas.Activity.Fragment.EmAltaFragment;
+import santos.williankaminski.abas.Activity.Fragment.HomeFragment;
+import santos.williankaminski.abas.Activity.Fragment.InscricoesFragment;
+import santos.williankaminski.abas.R;
+
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
@@ -20,11 +25,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Aplica configurações na Action Bar
+        getSupportActionBar().setElevation(0);
+        getSupportActionBar().setTitle("YOUTUBE");
+
+        viewPager = findViewById(R.id.viewpager);
+        smartTabLayout = findViewById(R.id.viewPagerTab);
+
         //Configurar Abas
         FragmentPagerAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
-                .create()
+                        .add("Home", HomeFragment.class)
+                        .add("Inscricoes", InscricoesFragment.class)
+                        .add("Em Alta", EmAltaFragment.class)
+                        .create()
         );
+
+        viewPager.setAdapter(adapter);
+        smartTabLayout.setViewPager(viewPager);
     }
 }
