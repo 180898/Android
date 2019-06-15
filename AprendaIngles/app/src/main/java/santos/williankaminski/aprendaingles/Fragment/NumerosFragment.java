@@ -91,7 +91,14 @@ public class NumerosFragment extends Fragment implements View.OnClickListener {
                }
            });
         }
-
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
 }
