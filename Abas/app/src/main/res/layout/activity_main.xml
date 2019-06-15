@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
-        android:id="@+id/viewPagerTab"
+        android:id="@+id/smartTableLayout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:stl_indicatorAlwaysInCenter="false"
@@ -42,7 +42,7 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/viewPagerTab"
+        android:layout_below="@id/smartTableLayout"
         />
 
 </LinearLayout>

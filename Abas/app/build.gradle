@@ -25,11 +25,8 @@ dependencies {
     testImplementation 'junit:junit:4.13-beta-3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
 
-dependencies {
-    implementation 'com.ogaclejapan.smarttablayout:library:1.7.0@aar'
-
-    //Optional: see how to use the utility.
-    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar'
+    //Biblioteca SmartTabLayout
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 }
