@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
 import santos.williankaminski.listadetarefas.Adapter.TarefaAdapter;
 import santos.williankaminski.listadetarefas.Model.Tarefa;
 import santos.williankaminski.listadetarefas.R;
+import santos.williankaminski.listadetarefas.helper.RecyclerItemClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +37,30 @@ public class MainActivity extends AppCompatActivity {
 
         //Configurar recycler
         recyclerView =  findViewById(R.id.recyclerViewLista);
+
+        //Configurar evento de clique no RecyclerView
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        recyclerView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        }
+                )
+        );
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
