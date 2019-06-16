@@ -1,7 +1,9 @@
-package santos.williankaminski.listadetarefas;
+package santos.williankaminski.listadetarefas.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import santos.williankaminski.listadetarefas.R;
 
 public class AdicionarTarefaActivity extends AppCompatActivity {
 
