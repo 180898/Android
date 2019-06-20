@@ -1,9 +1,11 @@
 package santos.williankaminski.listadetarefas.Activity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TarefaAdapter tarefaAdapter;
     private List<Tarefa> listaDeTarefas = new ArrayList<>();
+    private Tarefa tarefaSelecionada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onItemClick(View view, int position) {
 
                                 //Recuparar a tarefa para edição
-                                Tarefa tarefaSelecionada = listaDeTarefas.get(position);
+                                tarefaSelecionada = listaDeTarefas.get(position);
 
                                 //Enviar tarefa para tela de cadastro
                                 Intent intent = new Intent(MainActivity.this, AdicionarTarefaActivity.class);
@@ -62,6 +65,27 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onLongItemClick(View view, int position) {
+
+                                //Recuperar a tarefa selecionada
+                                tarefaSelecionada = listaDeTarefas.get(position);
+
+                                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+
+                                //Configurar o título da mensagem
+                                dialog.setTitle("Confirmar exclusão");
+                                dialog.setMessage("Deseja excluir a terefa " + tarefaSelecionada.getTarefa() + " ?");
+
+                                dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                });
+                                dialog.setNegativeButton("Não", null);
+
+                                //Exibir dialog
+                                dialog.create();
+                                dialog.show();
 
                             }
 
