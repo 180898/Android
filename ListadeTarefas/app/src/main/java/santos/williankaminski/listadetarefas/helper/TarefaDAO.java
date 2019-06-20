@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -29,8 +32,6 @@ public class TarefaDAO implements ITarefaDAO{
         ContentValues cv = new ContentValues();
         cv.put("nome", tarefa.getTarefa());
         cv.put("prioridade",tarefa.getPrioridada());
-        cv.put("data_cadastro",tarefa.getData_alteracao());
-
 
         try{
             escreve.insert(DBHelper.TABELA_TAREFAS, null, cv);

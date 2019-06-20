@@ -35,15 +35,39 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_salvar:
+
                 //Executa a ação para o item salvar
                 TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
 
-                Tarefa tarefa = new Tarefa();
-                tarefa.setTarefa("Ir ao Mercado");
-                tarefa.setPrioridada("Baixa");
-                tarefa.setData_alteracao("2019-06-01");
+                try{
 
-                tarefaDAO.salvar(tarefa);
+                    Tarefa tarefa = new Tarefa();
+                    String nome_tarefa = editTarefa.getText().toString();
+                    String prioridade = editPrioridade.getText().toString();
+
+                    if(!nome_tarefa.isEmpty()) {
+                        tarefa.setTarefa(nome_tarefa);
+                    }else{
+                        throw new NumberFormatException("Informe o nome da tarefa");
+                    }
+
+                    if(!prioridade.isEmpty()){
+                        tarefa.setPrioridada(prioridade);
+                    }else{
+                        throw new NumberFormatException("Informe a prioridade da tarefa");
+                    }
+
+                    tarefaDAO.salvar(tarefa);
+
+                    if(nome_tarefa.length() > 4 && prioridade.length() > 4){
+                        finish();
+                    }else{
+                        throw new NumberFormatException("Minimo de caracteres é 5");
+                    }
+
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG).show();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
