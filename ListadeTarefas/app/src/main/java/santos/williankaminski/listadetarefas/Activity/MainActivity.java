@@ -23,6 +23,7 @@ import santos.williankaminski.listadetarefas.Model.Tarefa;
 import santos.williankaminski.listadetarefas.R;
 import santos.williankaminski.listadetarefas.helper.DBHelper;
 import santos.williankaminski.listadetarefas.helper.RecyclerItemClickListener;
+import santos.williankaminski.listadetarefas.helper.TarefaDAO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,17 +78,8 @@ public class MainActivity extends AppCompatActivity {
     public void loadList(){
 
         //Listar tarefas
-        Tarefa t = new Tarefa();
-        t.setTarefa("Ir ao mercado");
-        t.setPrioridada("Alta");
-        t.setData_alteracao("16/06/2019");
-        listaDeTarefas.add(t);
-
-        Tarefa t2 = new Tarefa();
-        t2.setTarefa("Ir a feira");
-        t2.setPrioridada("Alta");
-        t2.setData_alteracao("16/06/2019");
-        listaDeTarefas.add(t2);
+        TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
+        listaDeTarefas = tarefaDAO.listar();
 
         /*
             Exibe a lista de tarefas no RecyclerView
