@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +79,18 @@ public class MainActivity extends AppCompatActivity {
                                 dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
 
+                                        if(tarefaDAO.deletar(tarefaSelecionada)){
+                                            loadList();
+                                            Toast.makeText(getApplicationContext(),
+                                                    "Sucesso ao excluir tarefa",
+                                                    Toast.LENGTH_LONG).show();
+                                        }else{
+                                            Toast.makeText(getApplicationContext(),
+                                                    "Erro ao excluir tarefa",
+                                                    Toast.LENGTH_LONG).show();
+                                        }
                                     }
                                 });
                                 dialog.setNegativeButton("Não", null);

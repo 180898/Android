@@ -35,9 +35,7 @@ public class TarefaDAO implements ITarefaDAO{
 
         try{
             escreve.insert(DBHelper.TABELA_TAREFAS, null, cv);
-            Log.e("INFO>>>>>>>>>>>>>>>", "Sucesso ao salvar a tarefa");
         }catch (Exception e){
-            Log.e("INFO>>>>>>>>>>>>>>>", "Erro ao salvar a tarefa" + e.getMessage());
             return false;
         }
 
@@ -54,9 +52,7 @@ public class TarefaDAO implements ITarefaDAO{
         try{
             String[] args = {String.valueOf(tarefa.getId())};
             escreve.update(DBHelper.TABELA_TAREFAS, cv, "id = ?", args);
-            Log.e("INFO>>>>>>>>>>>>>>>", "Sucesso ao salvar a tarefa");
         }catch (Exception e){
-            Log.e("INFO>>>>>>>>>>>>>>>", "Erro ao salvar a tarefa" + e.getMessage());
             return false;
         }
 
@@ -65,7 +61,19 @@ public class TarefaDAO implements ITarefaDAO{
 
     @Override
     public boolean deletar(Tarefa tarefa) {
-        return false;
+
+        ContentValues cv = new ContentValues();
+        cv.put("nome", tarefa.getTarefa());
+        cv.put("prioridade",tarefa.getPrioridada());
+
+        try{
+            String[] args = {String.valueOf(tarefa.getId())};
+            escreve.delete(DBHelper.TABELA_TAREFAS, "id = ?", args);
+        }catch (Exception e){
+            return false;
+        }
+
+        return true;
     }
 
     @Override
