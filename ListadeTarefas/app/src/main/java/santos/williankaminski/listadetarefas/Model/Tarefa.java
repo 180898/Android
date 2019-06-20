@@ -1,7 +1,6 @@
 package santos.williankaminski.listadetarefas.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Tarefa implements Serializable {
 

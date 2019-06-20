@@ -15,6 +15,7 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
 
     private TextInputEditText editTarefa;
     private TextInputEditText editPrioridade;
+    private Tarefa tarefaAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,16 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
 
         editTarefa = findViewById(R.id.textTarefa);
         editPrioridade = findViewById(R.id.textPrioridade);
+
+        //Recuperar tarefa, caso seja edição
+        tarefaAtual = (Tarefa) getIntent().getSerializableExtra("tarefaSelecionada");
+
+        //Configurar tarefa nas caixas de texto
+        if(tarefaAtual != null){
+            editTarefa.setText(tarefaAtual.getTarefa());
+            editPrioridade.setText(tarefaAtual.getPrioridada());
+        }
+
     }
 
     @Override
@@ -34,16 +45,15 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.menu_salvar:
+            case R.id.menu_salvar://Executa a ação para o item salvar
 
-                //Executa a ação para o item salvar
                 TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
+                String nome_tarefa = editTarefa.getText().toString();
+                String prioridade = editPrioridade.getText().toString();
 
-                try{
+                if(tarefaAtual != null){//Alterar cadastro
 
                     Tarefa tarefa = new Tarefa();
-                    String nome_tarefa = editTarefa.getText().toString();
-                    String prioridade = editPrioridade.getText().toString();
 
                     if(!nome_tarefa.isEmpty()) {
                         tarefa.setTarefa(nome_tarefa);
@@ -57,17 +67,51 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
                         throw new NumberFormatException("Informe a prioridade da tarefa");
                     }
 
-                    tarefaDAO.salvar(tarefa);
+                    tarefa.setId(tarefaAtual.getId());
 
-                    if(nome_tarefa.length() > 4 && prioridade.length() > 4){
+                    //atualizar no banco de dados
+                    if(tarefaDAO.atualizar(tarefa)){
                         finish();
+                        Toast.makeText(getApplicationContext(),
+                                "Cadastro atualizado com sucesso",
+                                Toast.LENGTH_LONG).show();
                     }else{
-                        throw new NumberFormatException("Minimo de caracteres é 5");
+                        Toast.makeText(getApplicationContext(),
+                                "Erro ao salvar a atualização",
+                                Toast.LENGTH_LONG).show();
                     }
 
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG).show();
+                }else{// Novo cadastro
+
+                    try{
+
+                        Tarefa tarefa = new Tarefa();
+
+                        if(!nome_tarefa.isEmpty()) {
+                            tarefa.setTarefa(nome_tarefa);
+                        }else{
+                            throw new NumberFormatException("Informe o nome da tarefa");
+                        }
+
+                        if(!prioridade.isEmpty()){
+                            tarefa.setPrioridada(prioridade);
+                        }else{
+                            throw new NumberFormatException("Informe a prioridade da tarefa");
+                        }
+
+                        tarefaDAO.salvar(tarefa);
+
+                        if(nome_tarefa.length() > 4 && prioridade.length() > 4){
+                            finish();
+                        }else{
+                            throw new NumberFormatException("Minimo de caracteres é 5");
+                        }
+
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 }
+
                 break;
         }
         return super.onOptionsItemSelected(item);
