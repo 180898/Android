@@ -1,5 +1,6 @@
 package santos.williankaminski.listadetarefas.Activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import java.util.List;
 import santos.williankaminski.listadetarefas.Adapter.TarefaAdapter;
 import santos.williankaminski.listadetarefas.Model.Tarefa;
 import santos.williankaminski.listadetarefas.R;
+import santos.williankaminski.listadetarefas.helper.DBHelper;
 import santos.williankaminski.listadetarefas.helper.RecyclerItemClickListener;
 
 public class MainActivity extends AppCompatActivity {
