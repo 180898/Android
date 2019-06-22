@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Recuperando os dados do Firebase
          */
+
+        /*
         DatabaseReference usuarios = referencia.child("usuarios");
 
         usuarios.addValueEventListener(new ValueEventListener() {
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
+
 
 
     }
