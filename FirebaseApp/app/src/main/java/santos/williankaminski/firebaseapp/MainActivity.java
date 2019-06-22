@@ -18,13 +18,16 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Criando um filho e adicionando um valor para
          * o mesmo no momento da execução do app.
-         */
-        referencia.child("pontos").setValue("200");
+        */
+
+        //referencia.child("pontos").setValue("200");
 
 
         /**
          * Criando novos registros na base de usuários
-         */
+        */
+
+        /*
         referencia.child("usuarios").child("001").child("nome").setValue("Willian");
         referencia.child("usuarios").child("001").child("sobrenome").setValue("Kaminski");
 
@@ -33,5 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         referencia.child("usuarios").child("003").child("nome").setValue("Bruna");
         referencia.child("usuarios").child("003").child("sobrenome").setValue("Forsh");
+        */
+
+        /**
+         * Guardando um objeto na base de dados
+         */
+        DatabaseReference usuarios = referencia.child("usuarios");
+
+        Usuario usuario = new Usuario();
+        usuario.setNome("Willian");
+        usuario.setSobrenome("Kaminski");
+        usuario.setIdades(18);
+
+        usuarios.child("001").setValue(usuario);
+
     }
 }
