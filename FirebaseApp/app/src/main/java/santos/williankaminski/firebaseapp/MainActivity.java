@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Cadastrando usuário
          */
+        /*
         usuario.createUserWithEmailAndPassword(
                 "","").
                 addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
@@ -98,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+         */
+
+        /**
+         * Verificar usuário logado
+         */
+        if(usuario.getCurrentUser() != null){
+            Log.i("CreateUser","Usuário Logado!");
+        }else{
+            Log.i("CreateUser","Usuário não logado!");
+        }
 
     }
 }
