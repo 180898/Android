@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -144,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
          * Gerando um identificador unico para o registro na base de
          * dados, utilizando o método "push()".
          */
+
+        /*
         DatabaseReference usuarios = referencia.child("usuarios");
 
         Usuario usuario = new Usuario();
@@ -152,5 +155,66 @@ public class MainActivity extends AppCompatActivity {
         usuario.setIdades(18);
 
         usuarios.push().setValue(usuario);
+        */
+
+        /**
+         * Recuperando dados através do identificador
+         */
+
+        /*
+        DatabaseReference usuarios = referencia.child("usuarios");
+        final DatabaseReference usuarioPesquisa = usuarios.child("-Li-32-1uowBc6sqBPy7");
+
+        usuarioPesquisa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Usuario dadosUsuario = dataSnapshot.getValue(Usuario.class);
+                Log.i("DADOS DO USUARIO: ", "nome: " + dadosUsuario.getNome());
+                Log.i("DADOS DO USUARIO: ", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        */
+
+        /**
+         * Aplicando filtros de pesquisa
+         */
+        DatabaseReference usuarios = referencia.child("usuarios");
+
+        // Nome
+        // Query usuarioPesquisa = usuarios.orderByChild("nome").equalTo("Willian");
+
+        // Primeiros 2
+        //Query usuarioPesquisa = usuarios.orderByKey().limitToFirst(2);
+
+        // Maior igual
+        //Query usuarioPesquisa = usuarios.orderByChild("idades").startAt(20);// >=
+
+        // Menor igual
+        //Query usuarioPesquisa = usuarios.orderByChild("idades").endAt(20);// <=
+
+        // Between
+        /*Query usuarioPesquisa = usuarios.orderByChild("idades")
+                .startAt(18)
+                .endAt(24);*/
+
+        // Filtrar palavras
+        Query usuarioPesquisa = usuarios.orderByChild("nome").startAt("W").endAt("W" + "\uf8ff");
+
+        usuarioPesquisa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("DADOS DO USUARIO: ", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
