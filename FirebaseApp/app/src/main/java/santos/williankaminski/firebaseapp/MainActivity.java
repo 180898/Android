@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Logar usuário
          */
+
+        /*
         usuario.signInWithEmailAndPassword("developer.williansantos@gmail.com","Inter@@201500").
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -136,5 +138,19 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+        */
+
+        /**
+         * Gerando um identificador unico para o registro na base de
+         * dados, utilizando o método "push()".
+         */
+        DatabaseReference usuarios = referencia.child("usuarios");
+
+        Usuario usuario = new Usuario();
+        usuario.setNome("Pedro");
+        usuario.setSobrenome("dos Santos");
+        usuario.setIdades(47);
+
+        usuarios.push().setValue(usuario);
     }
 }
