@@ -1,10 +1,15 @@
 package santos.williankaminski.firebaseapp;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Guardando um objeto na base de dados
          */
+
+        /*
         DatabaseReference usuarios = referencia.child("usuarios");
 
         Usuario usuario = new Usuario();
@@ -49,6 +56,25 @@ public class MainActivity extends AppCompatActivity {
         usuario.setIdades(18);
 
         usuarios.child("001").setValue(usuario);
+        */
+
+        /**
+         * Recuperando os dados do Firebase
+         */
+        DatabaseReference usuarios = referencia.child("usuarios");
+
+        usuarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("FIREBASE", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 }
