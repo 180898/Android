@@ -117,6 +117,24 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Deslogar usuário
          */
+
+        /*
         usuario.signOut();
+        */
+
+        /**
+         * Logar usuário
+         */
+        usuario.signInWithEmailAndPassword("developer.williansantos@gmail.com","Inter@@201500").
+                addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Log.i("CreateUser","Sucesso ao autenticar usuário!");
+                        }else{
+                            Log.i("CreateUser","Erro ao autenticar usuário!");
+                        }
+                    }
+                });
     }
 }
