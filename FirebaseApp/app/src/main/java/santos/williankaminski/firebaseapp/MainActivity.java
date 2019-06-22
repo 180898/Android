@@ -147,9 +147,9 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference usuarios = referencia.child("usuarios");
 
         Usuario usuario = new Usuario();
-        usuario.setNome("Pedro");
-        usuario.setSobrenome("dos Santos");
-        usuario.setIdades(47);
+        usuario.setNome("Willian");
+        usuario.setSobrenome("Kaminski");
+        usuario.setIdades(18);
 
         usuarios.push().setValue(usuario);
     }
