@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "131373597825",
+    "firebase_url": "https://projeto-teste-6adab.firebaseio.com",
+    "project_id": "projeto-teste-6adab",
+    "storage_bucket": "projeto-teste-6adab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131373597825:android:191c1ad8bd69f988",
+        "android_client_info": {
+          "package_name": "santos.williankaminski.firebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131373597825-e8285b2abkgpahu06d0suficcr4gcsf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "santos.williankaminski.firebaseapp",
+            "certificate_hash": "24b2ef22ff76689c489a87dac137c3b49ec360c6"
+          }
+        },
+        {
+          "client_id": "131373597825-21uro9c1qu3bfvtsg1p60pqfefpqdv30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb3Gb3ru2VE1UHgx8d5nJA_rIJw1pNNw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131373597825-21uro9c1qu3bfvtsg1p60pqfefpqdv30.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

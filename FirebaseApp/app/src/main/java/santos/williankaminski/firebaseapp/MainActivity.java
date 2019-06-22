@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,13 +21,26 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
-    private FirebaseAuth usuario = FirebaseAuth.getInstance();
+    /*private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+    private FirebaseAuth usuario = FirebaseAuth.getInstance();*/
+
+    private ImageView imageFoto;
+    private Button buttonUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imageFoto = findViewById(R.id.imageFoto);
+        buttonUpload = findViewById(R.id.buttonUpload);
+
+        buttonUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         /**
          * Criando um filho e adicionando um valor para
@@ -183,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Aplicando filtros de pesquisa
          */
-        DatabaseReference usuarios = referencia.child("usuarios");
+        //DatabaseReference usuarios = referencia.child("usuarios");
 
         // Nome
         // Query usuarioPesquisa = usuarios.orderByChild("nome").equalTo("Willian");
@@ -203,6 +219,8 @@ public class MainActivity extends AppCompatActivity {
                 .endAt(24);*/
 
         // Filtrar palavras
+
+        /*
         Query usuarioPesquisa = usuarios.orderByChild("nome").startAt("W").endAt("W" + "\uf8ff");
 
         usuarioPesquisa.addValueEventListener(new ValueEventListener() {
@@ -216,5 +234,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
     }
 }
