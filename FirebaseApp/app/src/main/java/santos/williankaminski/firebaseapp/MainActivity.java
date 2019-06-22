@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Cadastrando usuário
          */
+
         /*
         usuario.createUserWithEmailAndPassword(
                 "","").
@@ -104,11 +105,18 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Verificar usuário logado
          */
+
+        /*
         if(usuario.getCurrentUser() != null){
             Log.i("CreateUser","Usuário Logado!");
         }else{
             Log.i("CreateUser","Usuário não logado!");
         }
+        */
 
+        /**
+         * Deslogar usuário
+         */
+        usuario.signOut();
     }
 }
